@@ -24,7 +24,7 @@ public class EnemyController : MonoBehaviour
         Debug.Log("enemy killed player");
         if (collision.gameObject.tag == "Enemy")
         {
-            SceneManager.LoadScene("SampleScene");
+            //SceneManager.LoadScene("SampleScene");
         }
     }
 }

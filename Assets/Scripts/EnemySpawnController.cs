@@ -7,6 +7,7 @@ public class EnemySpawnController : MonoBehaviour
     public int spawnPerXSecond = 10;
     public GameObject enemy;
     public GameObject aimplayer;
+    public float distanceFromPlayer=20;
 
     bool start;
     // Start is called before the first frame update
@@ -40,8 +41,14 @@ public class EnemySpawnController : MonoBehaviour
             var comp = item.GetComponent<FacePlayerController>();
             comp.player = aimplayer;
 
-            item.transform.position = aimplayer.transform.position + (item.transform.position - aimplayer.transform.position).normalized * 20;
-            item.transform.RotateAround(aimplayer.transform.position, Vector3.up, Random.Range(0,359));
+            float angle = Random.Range(0.0f, Mathf.PI * 2);
+            Vector3 point = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle),0);
+
+            item.transform.position = aimplayer.transform.position+point * distanceFromPlayer;
+            //item.transform.position = aimplayer.transform.position + (item.transform.position - aimplayer.transform.position).normalized * distanceFromPlayer;
+            //item.transform.RotateAround(aimplayer.transform.position, Vector3.up, Random.Range(0,359));
+
+            Debug.Log(item.transform.position);
         }
     }
 }
