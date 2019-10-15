@@ -48,7 +48,7 @@ public class EnemySpawnController : MonoBehaviour
             //item.transform.position = aimplayer.transform.position + (item.transform.position - aimplayer.transform.position).normalized * distanceFromPlayer;
             //item.transform.RotateAround(aimplayer.transform.position, Vector3.up, Random.Range(0,359));
 
-            Debug.Log(item.transform.position);
+            //Debug.Log(item.transform.position);
         }
     }
 }

@@ -21,9 +21,9 @@ public class EnemyController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("enemy killed player");
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Player")
         {
+            //Debug.Log("enemy killed player1");
             //SceneManager.LoadScene("SampleScene");
         }
     }

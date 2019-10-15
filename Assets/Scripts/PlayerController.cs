@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 6.0F;
     public GameObject bullet;
     public float bulletspeed;
+    public GameObject bulletspawnpoint;
 
     float horizontal;
     float vertical;
@@ -52,7 +53,7 @@ public class PlayerController : MonoBehaviour
 
     private void FireBullet()
     {
-        GameObject firedbullet = Instantiate(bullet, this.transform.position, this.transform.Find("PlayerSprite").transform.rotation);
+        GameObject firedbullet = Instantiate(bullet, bulletspawnpoint.transform.position, this.transform.Find("PlayerSprite").transform.rotation);
         firedbullet.GetComponent<Rigidbody2D>().velocity = this.transform.Find("PlayerSprite").transform.up * bulletspeed;
     }
 }
