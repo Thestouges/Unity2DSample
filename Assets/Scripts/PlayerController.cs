@@ -5,9 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 6.0F;
+    public GameObject bullet;
+    public float bulletspeed;
 
     float horizontal;
     float vertical;
+    
 
     bool mousedown;
 
@@ -38,11 +41,18 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0) && mousedown == false)
         {
+            FireBullet();
             mousedown = true;
         }
         if (Input.GetMouseButtonUp(0))
         {
             mousedown = false;
         }
+    }
+
+    private void FireBullet()
+    {
+        GameObject firedbullet = Instantiate(bullet, this.transform.position, this.transform.Find("PlayerSprite").transform.rotation);
+        firedbullet.GetComponent<Rigidbody2D>().velocity = this.transform.Find("PlayerSprite").transform.up * bulletspeed;
     }
 }

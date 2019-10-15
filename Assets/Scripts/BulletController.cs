@@ -1,0 +1,36 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BulletController : MonoBehaviour
+{
+    // Start is called before the first frame update
+    public float BulletDespawnInSeconds;
+    public GameObject enemy;
+    float spawntime;
+    void Start()
+    {
+        Debug.Log("bulletspawn");
+        spawntime = Time.unscaledTime;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //this.transform.up;
+        if(Time.unscaledTime - spawntime >= BulletDespawnInSeconds)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("collision!!!");
+        if(collision.gameObject.tag == "Enemy")
+        {
+            Destroy(collision.gameObject);
+            Destroy(this.gameObject);
+        }
+    }
+}

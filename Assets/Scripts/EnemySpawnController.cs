@@ -7,19 +7,27 @@ public class EnemySpawnController : MonoBehaviour
     public int spawnPerXSecond = 10;
     public GameObject enemy;
     public GameObject aimplayer;
+
+    bool start;
     // Start is called before the first frame update
     
 
     void Start()
     {
-        StartCoroutine("Spawner");
+        //StartCoroutine("Spawner");
         Time.timeScale = 1;
+        start = false;
+        Random.InitState(System.DateTime.Now.Millisecond);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if(start == false)
+        {
+            StartCoroutine("Spawner");
+            start = true;
+        }
     }
 
     IEnumerator Spawner()
