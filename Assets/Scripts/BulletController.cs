@@ -10,7 +10,6 @@ public class BulletController : MonoBehaviour
     float spawntime;
     void Start()
     {
-        Debug.Log("bulletspawn");
         spawntime = Time.unscaledTime;
     }
 
@@ -26,7 +25,7 @@ public class BulletController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("collision!!!");
+        Debug.Log("killed enemy");
         if(collision.gameObject.tag == "Enemy")
         {
             Destroy(collision.gameObject);

@@ -23,19 +23,19 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && transform.position.x >= -10)
         {
             transform.Translate(-Vector2.right * speed);
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && transform.position.x <= 10)
         {
             transform.Translate(Vector2.right * speed);
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) && transform.position.y >= -10)
         {
             transform.Translate(-Vector2.up * speed);
         }
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) && transform.position.y <= 10)
         {
             transform.Translate(Vector2.up * speed);
         }
