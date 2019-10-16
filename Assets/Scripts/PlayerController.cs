@@ -72,6 +72,7 @@ public class PlayerController : MonoBehaviour
         float x = Input.mousePosition.x;
         float y = Input.mousePosition.y;
         var ray = Camera.main.ScreenPointToRay(new Vector3(x, y, 0));
-        Instantiate(mine,ray.origin, Quaternion.identity);
+        Vector3 groundedRay = new Vector3(ray.origin.x, ray.origin.y, 0);
+        Instantiate(mine, groundedRay, Quaternion.identity);
     }
 }

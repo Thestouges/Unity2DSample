@@ -27,16 +27,32 @@ public class MineController : MonoBehaviour
 
     private void SpawnMinebullets()
     {
-        for (int i = 0; i < totalBulletsSpawn; i++)
+        for (int i = 1; i <= totalBulletsSpawn; i++)
         {
+            float angle = 2 * Mathf.PI / totalBulletsSpawn * i;
+            Vector3 point = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle), 0);
+
             GameObject firedbullet = Instantiate(bullet);
-            firedbullet.transform.position = this.gameObject.transform.position;
+            firedbullet.transform.position = transform.position + point * 1;
 
-            float angle = 359 / totalBulletsSpawn * i;
-            firedbullet.transform.Rotate(this.gameObject.transform.position, angle);
+            //firedbullet.transform.position = this.gameObject.transform.position;
 
-            //firedbullet.transform.rotation = Quaternion.AngleAxis(360 / totalBulletsSpawn * i, Vector3.up);
+
+
+            //firedbullet.transform.Rotate(this.gameObject.transform.position, angle);
+            //firedbullet.transform.position += Quaternion.AngleAxis(angle, this.gameObject.transform.position).eulerAngles;
+
+            //firedbullet.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            //firedbullet.GetComponent<Rigidbody2D>().velocity = firedbullet.transform.up * MinebulletSpeed;
+
+            float newX = transform.position.x - firedbullet.transform.position.x;
+            float newY = transform.position.y - firedbullet.transform.position.y;
+            Vector2 direction = new Vector2(newX, newY);
+
+            firedbullet.transform.up = direction;
+
             firedbullet.GetComponent<Rigidbody2D>().velocity = firedbullet.transform.up * MinebulletSpeed;
+            Debug.Log(angle);
         }
     }
 }
