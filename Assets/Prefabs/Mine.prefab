@@ -115,4 +115,4 @@ MonoBehaviour:
   MineActivationTime: 2
   bullet: {fileID: 6742327984432768784, guid: 7e282c91936ba15408600431a79751fa, type: 3}
   MinebulletSpeed: 10
-  totalBulletsSpawn: 8
+  totalBulletsSpawn: 16

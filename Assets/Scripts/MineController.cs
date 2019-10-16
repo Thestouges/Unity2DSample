@@ -32,7 +32,7 @@ public class MineController : MonoBehaviour
             GameObject firedbullet = Instantiate(bullet);
             firedbullet.transform.position = this.gameObject.transform.position;
 
-            float angle = 360 / totalBulletsSpawn * i;
+            float angle = 359 / totalBulletsSpawn * i;
             firedbullet.transform.Rotate(this.gameObject.transform.position, angle);
 
             //firedbullet.transform.rotation = Quaternion.AngleAxis(360 / totalBulletsSpawn * i, Vector3.up);
