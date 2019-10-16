@@ -8,10 +8,11 @@ public class PlayerController : MonoBehaviour
     public GameObject bullet;
     public float bulletspeed;
     public GameObject bulletspawnpoint;
+    public GameObject mine;
 
     float horizontal;
     float vertical;
-    
+
 
     bool mousedown;
 
@@ -49,11 +50,28 @@ public class PlayerController : MonoBehaviour
         {
             mousedown = false;
         }
+        if (Input.GetMouseButtonDown(1) && mousedown == false)
+        {
+            SpawnMine();
+            mousedown = true;
+        }
+        if (Input.GetMouseButtonUp(1))
+        {
+            mousedown = false;
+        }
     }
 
     private void FireBullet()
     {
         GameObject firedbullet = Instantiate(bullet, bulletspawnpoint.transform.position, this.transform.Find("PlayerSprite").transform.rotation);
         firedbullet.GetComponent<Rigidbody2D>().velocity = this.transform.Find("PlayerSprite").transform.up * bulletspeed;
+    }
+
+    public void SpawnMine()
+    {
+        float x = Input.mousePosition.x;
+        float y = Input.mousePosition.y;
+        var ray = Camera.main.ScreenPointToRay(new Vector3(x, y, 0));
+        Instantiate(mine,ray.origin, Quaternion.identity);
     }
 }

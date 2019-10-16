@@ -25,7 +25,8 @@ public class SpawnerController : MonoBehaviour
         {
             yield return new WaitForSeconds(timeBetweenSpawners);
 
-            Instantiate(enemyspawner);
+            GameObject spawner = Instantiate(enemyspawner);
+            spawner.GetComponent<EnemySpawnController>().aimplayer = player;
         }
     }
 }

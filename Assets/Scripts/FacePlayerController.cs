@@ -19,5 +19,7 @@ public class FacePlayerController : MonoBehaviour
         Vector2 direction = new Vector2(newX, newY);
 
         transform.up = direction;
+
+        //Debug.Log(direction);
     }
 }

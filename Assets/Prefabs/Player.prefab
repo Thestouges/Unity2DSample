@@ -199,8 +199,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.2
   bullet: {fileID: 6742327984432768784, guid: 7e282c91936ba15408600431a79751fa, type: 3}
-  bulletspeed: 0
+  bulletspeed: 10
   bulletspawnpoint: {fileID: 8980919244828494696}
+  mine: {fileID: 1933636160403105084, guid: 458809350c928874aa0f091602e9d59e, type: 3}
 --- !u!50 &50259522166542708
 Rigidbody2D:
   serializedVersion: 4

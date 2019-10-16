@@ -6,7 +6,6 @@ public class BulletController : MonoBehaviour
 {
     // Start is called before the first frame update
     public float BulletDespawnInSeconds;
-    public GameObject enemy;
     float spawntime;
     void Start()
     {
@@ -29,7 +28,7 @@ public class BulletController : MonoBehaviour
         if(collision.gameObject.tag == "Enemy")
         {
             Destroy(collision.gameObject);
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
         }
     }
 }
