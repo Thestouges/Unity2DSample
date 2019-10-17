@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float bulletspeed;
     public GameObject bulletspawnpoint;
     public GameObject mine;
+    public GameObject spawnshoottarget;
 
     float horizontal;
     float vertical;
@@ -59,6 +60,15 @@ public class PlayerController : MonoBehaviour
         {
             mousedown = false;
         }
+        if (Input.GetMouseButtonDown(2) && mousedown == false)
+        {
+            spawnShootTarget();
+            mousedown = true;
+        }
+        if (Input.GetMouseButtonUp(2))
+        {
+            mousedown = false;
+        }
     }
 
     private void FireBullet()
@@ -74,5 +84,15 @@ public class PlayerController : MonoBehaviour
         var ray = Camera.main.ScreenPointToRay(new Vector3(x, y, 0));
         Vector3 groundedRay = new Vector3(ray.origin.x, ray.origin.y, 0);
         Instantiate(mine, groundedRay, Quaternion.identity);
+    }
+
+    public void spawnShootTarget()
+    {
+        float x = Input.mousePosition.x;
+        float y = Input.mousePosition.y;
+        var ray = Camera.main.ScreenPointToRay(new Vector3(x, y, 0));
+        Vector3 groundedRay = new Vector3(ray.origin.x, ray.origin.y, 0);
+        GameObject item = Instantiate(spawnshoottarget, groundedRay, Quaternion.identity);
+        item.GetComponent<ShootTargetController>().target = this.gameObject;
     }
 }
