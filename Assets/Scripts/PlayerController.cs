@@ -1,16 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 6.0F;
+    public float speed = 0.2F;
     public GameObject bullet;
     public float bulletspeed;
     public GameObject bulletspawnpoint;
     public GameObject mine;
     public GameObject spawnshoottarget;
     public GameObject wallbouncebullet;
+    public Text debugtext;
 
     float horizontal;
     float vertical;
@@ -27,6 +29,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        debugtext.text = "" + transform.position.x + " " + transform.position.y;
         if (Input.GetKey(KeyCode.A) && transform.position.x >= -10)
         {
             transform.Translate(-Vector2.right * speed);
