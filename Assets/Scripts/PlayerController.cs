@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletspawnpoint;
     public GameObject mine;
     public GameObject spawnshoottarget;
+    public GameObject wallbouncebullet;
 
     float horizontal;
     float vertical;
@@ -69,6 +70,15 @@ public class PlayerController : MonoBehaviour
         {
             mousedown = false;
         }
+        if (Input.GetKeyDown(KeyCode.Z) && mousedown == false)
+        {
+            spawnWallBouncBullet();
+            mousedown = true;
+        }
+        if (Input.GetKeyUp(KeyCode.Z))
+        {
+            mousedown = false;
+        }
     }
 
     private void FireBullet()
@@ -94,5 +104,11 @@ public class PlayerController : MonoBehaviour
         Vector3 groundedRay = new Vector3(ray.origin.x, ray.origin.y, 0);
         GameObject item = Instantiate(spawnshoottarget, groundedRay, Quaternion.identity);
         item.GetComponent<ShootTargetController>().target = this.gameObject;
+    }
+
+    public void spawnWallBouncBullet()
+    {
+        GameObject item = Instantiate(wallbouncebullet, bulletspawnpoint.transform.position, this.transform.Find("PlayerSprite").transform.rotation);
+        //item.GetComponent<WallBounceBulletController>().border = GameObject.FindGameObjectWithTag("MainCamera");
     }
 }

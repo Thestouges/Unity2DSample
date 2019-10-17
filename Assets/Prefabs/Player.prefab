@@ -204,6 +204,8 @@ MonoBehaviour:
   mine: {fileID: 1933636160403105084, guid: 458809350c928874aa0f091602e9d59e, type: 3}
   spawnshoottarget: {fileID: 6724572692041603406, guid: a5df2a5cdd9afcd4dbd1fca20be9f9bc,
     type: 3}
+  wallbouncebullet: {fileID: 8554626253028073160, guid: 639397b5d72a2e5429ea5d7d8e2bf5fa,
+    type: 3}
 --- !u!50 &50259522166542708
 Rigidbody2D:
   serializedVersion: 4

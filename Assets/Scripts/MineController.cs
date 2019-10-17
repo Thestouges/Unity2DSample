@@ -13,6 +13,7 @@ public class MineController : MonoBehaviour
     void Start()
     {
         spawntime = Time.unscaledTime;
+        Debug.Log("mine x:" + transform.position.x + " y:" + transform.position.y);
     }
 
     // Update is called once per frame
