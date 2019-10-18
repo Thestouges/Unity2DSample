@@ -13,7 +13,7 @@ public class MineController : MonoBehaviour
     void Start()
     {
         spawntime = Time.unscaledTime;
-        Debug.Log("mine x:" + transform.position.x + " y:" + transform.position.y);
+        //Debug.Log("mine x:" + transform.position.x + " y:" + transform.position.y);
     }
 
     // Update is called once per frame
@@ -53,7 +53,7 @@ public class MineController : MonoBehaviour
             firedbullet.transform.up = direction;
 
             firedbullet.GetComponent<Rigidbody2D>().velocity = firedbullet.transform.up * MinebulletSpeed;
-            Debug.Log(angle);
+            //Debug.Log(angle);
         }
     }
 }
