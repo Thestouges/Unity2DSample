@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalbullet: 1
-  totalbounce: 0
+  totalbounce: 3
   bullet: {fileID: 6742327984432768784, guid: 7e282c91936ba15408600431a79751fa, type: 3}
-  bulletspeed: 10
+  bulletspeed: 20

@@ -7,7 +7,7 @@ public class WallBounceBulletController : MonoBehaviour
     public int totalbullet = 1;
     public int totalbounce = 1;
     public GameObject bullet;
-    public float bulletspeed = 10;
+    public float bulletspeed = 20;
     // Start is called before the first frame update
     void Start()
     {

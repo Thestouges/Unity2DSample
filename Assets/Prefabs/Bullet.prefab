@@ -92,7 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd3f48ac86d0a94386ca4c0b836346b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletDespawnInSeconds: 2
+  BulletDespawnInSeconds: 4
+  bounces: 0
 --- !u!58 &4269553314755506823
 CircleCollider2D:
   m_ObjectHideFlags: 0
